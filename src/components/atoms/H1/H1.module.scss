@@ -1,0 +1,14 @@
+@import "../../../styles/variables.scss";
+
+.h1 {
+  font-size: 22px;
+  margin: 0;
+
+  &[data-is-white="true"] {
+    color: $white;
+  }
+
+  @media (max-width: $sm) {
+    font-size: 16px;
+  }
+}

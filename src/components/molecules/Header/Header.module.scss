@@ -1,0 +1,20 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/base.scss";
+
+.header {
+  padding: 0 16px;
+  background-color: $primary;
+}
+
+.header_inner {
+  @extend .base_layout;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  select {
+    max-width: 220px;
+  }
+}

@@ -1,0 +1,18 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/base.scss";
+
+.card {
+  @extend .box_shadow;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.price {
+  display: flex;
+  gap: 5px;
+}

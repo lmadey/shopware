@@ -1,0 +1,10 @@
+@import "../../../styles/base.scss";
+
+.main {
+  padding-bottom: 112px;
+}
+
+.input {
+  @extend .base_layout;
+  margin: 64px auto;
+}

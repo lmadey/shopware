@@ -1,0 +1,10 @@
+@import "../../../styles/variables.scss";
+
+.input {
+  background-color: transparent !important;
+  color: $white !important;
+
+  &::placeholder {
+    color: $gray !important;
+  }
+}

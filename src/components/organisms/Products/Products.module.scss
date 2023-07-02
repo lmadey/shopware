@@ -1,0 +1,13 @@
+@import "../../../styles/base.scss";
+@import "../../../styles/variables.scss";
+
+.section {
+  width: 100%;
+  background-color: $light-gray;
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.container {
+  @extend .base_layout;
+}
