@@ -1,0 +1,6 @@
+@import "../../../styles/base.scss";
+
+.wrapper {
+  @extend .base_layout;
+  margin: 64px auto;
+}
