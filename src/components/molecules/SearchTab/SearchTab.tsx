@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState, useRef } from "react";
 import { Input } from "../../atoms/Input/Input";
 import styles from "./SearchTab.module.scss";
 import { products_listing, search } from "../../../endpoints";
@@ -20,23 +20,29 @@ export const SearchTab: React.FC = () => {
   const defaultSearchId = "e435c9763b0d44fcab67ea1c0fdb3fa0";
   const dispatch = useAppDispatch();
   const sortValue = useAppSelector((state) => state.products.sortValue);
+  const timeout = useRef<null | number>(null);
   const [productsResources, fetchProductsResources] =
     usePost<ProductsResources>();
 
   const handleOnInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
   };
 
   useEffect(() => {
-    if (searchValue === "") {
-      fetchProductsResources(`${products_listing}/${defaultSearchId}`, {
-        order: sortValue,
-      });
-    } else
-      fetchProductsResources(search, {
-        search: searchValue,
-        order: sortValue,
-      });
+    timeout.current = setTimeout(() => {
+      if (searchValue === "") {
+        fetchProductsResources(`${products_listing}/${defaultSearchId}`, {
+          order: sortValue,
+        });
+      } else
+        fetchProductsResources(search, {
+          search: searchValue,
+          order: sortValue,
+        });
+    }, 600);
   }, [fetchProductsResources, searchValue, sortValue]);
 
   useEffect(() => {
